@@ -5,15 +5,6 @@
 <%@page import="kr.or.ddit.enumpkg.OperatorType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.7.0.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/customLibs.js"></script>
-</head>
-<body>
 <div style="border: 1px solid black;">
 	<h4>reqeust content-type header : server side unmarshalling 여부</h4>
 	<input type="radio" name="contentType" value="Parameter" checked />Parameter
@@ -94,5 +85,3 @@
 		$.ajax(settings);
 	});
 </script>
-</body>
-</html>

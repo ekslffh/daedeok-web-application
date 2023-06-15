@@ -23,14 +23,17 @@ public class GugudanServlet extends HttpServlet {
 				minDan = Integer.parseInt(minParam);
 				maxDan = Integer.parseInt(maxParam);
 			} catch (NumberFormatException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "똑바로 해라잇");
+				resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "잘못된 요청입니다.");
 				return;
 			}
 		}
 		
 		req.setAttribute("minDan", minDan);
 		req.setAttribute("maxDan", maxDan);
-		String viewName = "/WEB-INF/views/02/gugudan.jsp";
+		
+		String logicalViewName = "02/gugudan";
+		
+		String viewName = "/" + logicalViewName + ".miles";
 		req.getRequestDispatcher(viewName).forward(req, resp);
 	}
 }

@@ -8,6 +8,25 @@
   	<param-name>mediaFolder</param-name>
 	<param-value>D:/medias/images</param-value>
   </context-param>
+  
+  <servlet>
+  	<servlet-name>MilesDispatcherServlet</servlet-name>
+  	<servlet-class>kr.or.ddit.miles.MilesDispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>template</param-name>
+  		<param-value>/WEB-INF/views/templateBS.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>configLocation</param-name>
+  		<param-value>/miles/milesConfig.properties</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MilesDispatcherServlet</servlet-name>
+  	<url-pattern>*.miles</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>ImageStreamingServlet</servlet-name>
   	<servlet-class>kr.or.ddit.servlet01.ImageStreamingServlet</servlet-class>

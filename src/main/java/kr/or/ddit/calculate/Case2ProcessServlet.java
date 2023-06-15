@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.or.ddit.enumpkg.OperatorType;
 
 @WebServlet("/calculate/Case2ProcessServlet")
-public class Case2ProcessServlet2 extends HttpServlet {
+public class Case2ProcessServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

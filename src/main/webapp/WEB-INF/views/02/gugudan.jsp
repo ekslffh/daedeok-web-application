@@ -5,13 +5,6 @@
 	int minDan = (Integer) request.getAttribute("minDan");
 	int maxDan = (Integer) request.getAttribute("maxDan");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>02/gugudan.jsp</title>
-</head>
-<body>
 <form id="gugudanForm">
 	<input type="text" placeholder="최소단" name="minDan" value="<%=minDan %>" />
 	<select name="maxDan">
@@ -80,5 +73,3 @@ private String makeGugudanTable(int min, int max) {
 	return html.toString();
 }
 %>
-</body>
-</html>
