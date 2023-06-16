@@ -6,8 +6,8 @@
 <%
 	Map<String, String[]> memList = (Map) request.getAttribute("memList");
 %>
-<form method="post">
-	<select class="form-select" name="member" onchange="this.form.requestSubmit();">
+<form action="" method="post">
+	<select class="form-select" name="member">
 		<%=
 			memList.entrySet().stream()
 				.map(e -> MessageFormat.format("<option value=''{0}''>{1}</option>"
@@ -16,3 +16,11 @@
 		%>
 	</select>
 </form>
+<script>
+$('[name=member]').on('change', function(event) {
+	event.preventDefault();
+	let value = $(this).val();
+	this.form.action += "/" + value;
+	this.form.requestSubmit();
+})
+</script>

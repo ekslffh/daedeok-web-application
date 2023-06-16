@@ -17,7 +17,7 @@ public class Case6ProcessServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String logicalViewName = "calculate/case6Form";
-		String viewName = "/" + logicalViewName + ".miles";
+		String viewName = "/" + logicalViewName + ".tiles";
 		req.getRequestDispatcher(viewName).forward(req, resp);
 	}
 	

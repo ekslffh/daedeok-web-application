@@ -24,7 +24,7 @@ public class CalendarCase3Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String logicalViewName = "calendar/calendarCase3";
-		String viewName = "/" + logicalViewName + ".miles";
+		String viewName = "/" + logicalViewName + ".tiles";
 		req.getRequestDispatcher(viewName).forward(req, resp);
 	}
 	

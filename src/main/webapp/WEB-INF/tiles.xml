@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="abstractParent" template="/WEB-INF/views/templateTiles.jsp">
+    <put-attribute name="title" value="Company403" />
+    <put-attribute name="preScript" value="/includee/preScript.jsp" />
+    <put-attribute name="header" value="/includee/headerMenu.jsp" />
+    
+    <put-attribute name="footer" value="/includee/footer.jsp" />
+    <put-attribute name="postScript" value="/includee/postScript.jsp" />
+  </definition>
+  
+  <definition name="realParent" template="/WEB-INF/views/template.jsp">
+  	<put-attribute name="title" value="Company403" />
+  	
+	<put-attribute name="preScript" value="/includee/preScript.jsp" />
+  	<put-attribute name="headerMenu" value="/includee/headerMenu.jsp" />
+  	<put-attribute name="leftMenu" value="/includee/leftMenu.jsp" />
+  	<put-attribute name="footer" value="/includee/footer.jsp" />
+	<put-attribute name="postScript" value="/includee/postScript.jsp" />
+  </definition>
+
+  <definition name="index" extends="realParent" preparer="kr.or.ddit.preparer.IndexViewPreparer">
+    <put-attribute name="contentPage" value="/WEB-INF/views/index.jsp" />
+  </definition>
+
+  <definition name="*/*" extends="realParent">
+    <put-attribute name="contentPage" value="/WEB-INF/views/{1}/{2}.jsp" />
+  </definition>
+  
+<!--   <definition name="blood/*" extends="abstractParent"> -->
+<!--     <put-attribute name="body" value="/WEB-INF/views/gugudan.jsp" /> -->
+<!--   </definition> -->
+  
+<!--   <definition name="calculate/case6Form" extends="abstractParent"> -->
+<!--     <put-attribute name="body" value="/WEB-INF/views/calculate/case6Form.jsp" /> -->
+<!--   </definition> -->
+  
+<!--   <definition name="/02/gugudan.do" extends="abstractParent"> -->
+<!--     <put-attribute name="body" value="/WEB-INF/views/blood/{1}.jsp" /> -->
+<!--   </definition> -->
+</tiles-definitions>

@@ -33,7 +33,7 @@ public class GugudanServlet extends HttpServlet {
 		
 		String logicalViewName = "02/gugudan";
 		
-		String viewName = "/" + logicalViewName + ".miles";
+		String viewName = "/" + logicalViewName + ".tiles";
 		req.getRequestDispatcher(viewName).forward(req, resp);
 	}
 }
