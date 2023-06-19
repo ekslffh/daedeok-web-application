@@ -48,4 +48,8 @@
   	<servlet-name>ImageStreamingServlet</servlet-name>
   	<url-pattern>/image.do</url-pattern>
   </servlet-mapping>
+  
+  <session-config>
+  	<session-timeout>2</session-timeout>
+  </session-config>
 </web-app>
