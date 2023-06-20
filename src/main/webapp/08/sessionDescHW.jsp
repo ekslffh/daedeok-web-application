@@ -6,10 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="/includee/preScript.jsp"></jsp:include>
 </head>
 <body>
-<h4>타이머 : <span id="timerArea"></span></h4>
 <h4>타이머 : <span id="timerArea"></span></h4>
 <div id="messageArea" hidden>
 	<p>세션 연장 여부 확인</p>
@@ -58,45 +56,37 @@
 			throw new Error("시간 데이터는 0이상의 값이 필요함.");
 		}
 	}
+	let messageArea = document.getElementById('messageArea');
 	// scheduling : timeout, interval
 	let timerJob = setInterval(() => {
+		if (timer == 60) {
+			messageArea.hidden = false;
+		}
 		if (timer <= 0) {
 			messageArea.hidden = true;
 			clearInterval(timerJob);	
-			$messageArea.hide();
 		} else {
 			timerArea.innerHTML = timeFormat(--timer);
 		}
 	}, 1*speed);
 	
-	let $messageArea = $(messageArea).on("click", ".controlBtn", function() {
-// 		this.id
-		let id = $(this).prop("id");
-		if (id == "yesBtn") {
-			let settings = {
-				url : "",
-				method : "head"
-			};
-
-			$.ajax(settings).done(() => {
-				timer = timeout;
-				setTimeout(() => {
-					$messageArea.show();
-				}, (timeout - 60) * speed);
-			});
+	let controlBtns = document.querySelectorAll('.controlBtn');
+	controlBtns.forEach(btn => btn.addEventListener('click', function() {
+		if (this.id == 'yesBtn') {
+			let url = '<%=request.getRequestURI() %>';
+			fetch(url, { method: "head" })
+			.then(resp => timer = timeout);
 		}
-		$(this).parents("div:first").hide();
-	}).hide();
-	setTimeout(() => {
-		$messageArea.show();
-	}, (timeout - 60) * speed)
+		messageArea.hidden = true;
+	}));
 	
 	<%--
-		1. 메시지 영역을 hide
-		2. 대기할 수 있는 함수 생성
-		3. 클릭이벤트 설정 : 시간되면 메시지 보이기
-		4. yesBtn 클릭시 비동기 요청먼저 보내기
-		5. 타이머 시간 초기화
+		의사코드
+		1. 시간이 1분이 남았을 때 메시지가 보인다.
+		2-1. 예를 누르면 시간이 다시 2분으로 늘어난다. (연장)
+			: 세션을 먼저 연장하고 timer시간 다시 늘리기
+		2-2. 아니오를 누르면 시간은 그대로이다.
+		3. 메시지가 사라진다.
 	--%>
 	
 </script>

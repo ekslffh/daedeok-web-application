@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4> 기본 객체 (내장 객체) </h4>
+<h4> 기본 객체 (내장 객체, 지역변수) </h4>
 <pre>
 	: 개발자가 선언하거나 생성하지 않고, 컨텍스트에서 기본으로 제공되는 객체.
 	request(HttpServletReqeust)
@@ -15,7 +15,7 @@
 	out(JspWriter)
 	
 	session(HttpSession) : <a href="sessionDesc.jsp">session desc 참고</a>
-	application(ServletContext)
+	application(ServletContext) : <a href="applicationDesc.jsp">application desc 참고, <%=application.hashCode() %></a>
 	
 	config(ServletConfig)
 	page(Object) : this, jsp 스펙에 따라 컨테이너가 생성한 싱글턴 인스턴스의 참조
